@@ -1,0 +1,692 @@
+{
+ "_note": "由 tools/build-roster.js 生成，勿手改。仅为「专属光锥表覆盖校验」提供最小事实数据（5★ 角色 / 光锥的 id、名称、命途），让 CI 在没有 assets/index（版权数据）时也能真校验。游戏出新 5★ 后请重跑本脚本并跑 node tools/verify-dashboard.js。",
+ "chars": [
+  {
+   "id": "1003",
+   "name": "姬子",
+   "path": "Mage"
+  },
+  {
+   "id": "1004",
+   "name": "瓦尔特",
+   "path": "Warlock"
+  },
+  {
+   "id": "1005",
+   "name": "卡芙卡",
+   "path": "Warlock"
+  },
+  {
+   "id": "1006",
+   "name": "银狼",
+   "path": "Warlock"
+  },
+  {
+   "id": "1014",
+   "name": "Saber",
+   "path": "Warrior"
+  },
+  {
+   "id": "1015",
+   "name": "Archer",
+   "path": "Rogue"
+  },
+  {
+   "id": "1101",
+   "name": "布洛妮娅",
+   "path": "Shaman"
+  },
+  {
+   "id": "1102",
+   "name": "希儿",
+   "path": "Rogue"
+  },
+  {
+   "id": "1104",
+   "name": "杰帕德",
+   "path": "Knight"
+  },
+  {
+   "id": "1107",
+   "name": "克拉拉",
+   "path": "Warrior"
+  },
+  {
+   "id": "1112",
+   "name": "托帕&账账",
+   "path": "Rogue"
+  },
+  {
+   "id": "1203",
+   "name": "罗刹",
+   "path": "Priest"
+  },
+  {
+   "id": "1204",
+   "name": "景元",
+   "path": "Mage"
+  },
+  {
+   "id": "1205",
+   "name": "刃",
+   "path": "Warrior"
+  },
+  {
+   "id": "1208",
+   "name": "符玄",
+   "path": "Knight"
+  },
+  {
+   "id": "1209",
+   "name": "彦卿",
+   "path": "Rogue"
+  },
+  {
+   "id": "1211",
+   "name": "白露",
+   "path": "Priest"
+  },
+  {
+   "id": "1212",
+   "name": "镜流",
+   "path": "Warrior"
+  },
+  {
+   "id": "1213",
+   "name": "丹恒•饮月",
+   "path": "Warrior"
+  },
+  {
+   "id": "1217",
+   "name": "藿藿",
+   "path": "Priest"
+  },
+  {
+   "id": "1218",
+   "name": "椒丘",
+   "path": "Warlock"
+  },
+  {
+   "id": "1220",
+   "name": "飞霄",
+   "path": "Rogue"
+  },
+  {
+   "id": "1221",
+   "name": "云璃",
+   "path": "Warrior"
+  },
+  {
+   "id": "1222",
+   "name": "灵砂",
+   "path": "Priest"
+  },
+  {
+   "id": "1225",
+   "name": "忘归人",
+   "path": "Warlock"
+  },
+  {
+   "id": "1302",
+   "name": "银枝",
+   "path": "Mage"
+  },
+  {
+   "id": "1303",
+   "name": "阮•梅",
+   "path": "Shaman"
+  },
+  {
+   "id": "1304",
+   "name": "砂金",
+   "path": "Knight"
+  },
+  {
+   "id": "1305",
+   "name": "真理医生",
+   "path": "Rogue"
+  },
+  {
+   "id": "1306",
+   "name": "花火",
+   "path": "Shaman"
+  },
+  {
+   "id": "1307",
+   "name": "黑天鹅",
+   "path": "Warlock"
+  },
+  {
+   "id": "1308",
+   "name": "黄泉",
+   "path": "Warlock"
+  },
+  {
+   "id": "1309",
+   "name": "知更鸟",
+   "path": "Shaman"
+  },
+  {
+   "id": "1310",
+   "name": "流萤",
+   "path": "Warrior"
+  },
+  {
+   "id": "1313",
+   "name": "星期日",
+   "path": "Shaman"
+  },
+  {
+   "id": "1314",
+   "name": "翡翠",
+   "path": "Mage"
+  },
+  {
+   "id": "1315",
+   "name": "波提欧",
+   "path": "Rogue"
+  },
+  {
+   "id": "1317",
+   "name": "乱破",
+   "path": "Mage"
+  },
+  {
+   "id": "1321",
+   "name": "大丽花",
+   "path": "Warlock"
+  },
+  {
+   "id": "1401",
+   "name": "大黑塔",
+   "path": "Mage"
+  },
+  {
+   "id": "1402",
+   "name": "阿格莱雅",
+   "path": "Memory"
+  },
+  {
+   "id": "1403",
+   "name": "缇宝",
+   "path": "Shaman"
+  },
+  {
+   "id": "1404",
+   "name": "万敌",
+   "path": "Warrior"
+  },
+  {
+   "id": "1405",
+   "name": "那刻夏",
+   "path": "Mage"
+  },
+  {
+   "id": "1406",
+   "name": "赛飞儿",
+   "path": "Warlock"
+  },
+  {
+   "id": "1407",
+   "name": "遐蝶",
+   "path": "Memory"
+  },
+  {
+   "id": "1408",
+   "name": "白厄",
+   "path": "Warrior"
+  },
+  {
+   "id": "1409",
+   "name": "风堇",
+   "path": "Memory"
+  },
+  {
+   "id": "1410",
+   "name": "海瑟音",
+   "path": "Warlock"
+  },
+  {
+   "id": "1412",
+   "name": "刻律德菈",
+   "path": "Shaman"
+  },
+  {
+   "id": "1413",
+   "name": "长夜月",
+   "path": "Memory"
+  },
+  {
+   "id": "1414",
+   "name": "丹恒•腾荒",
+   "path": "Knight"
+  },
+  {
+   "id": "1415",
+   "name": "昔涟",
+   "path": "Memory"
+  },
+  {
+   "id": "1501",
+   "name": "火花",
+   "path": "Elation"
+  },
+  {
+   "id": "1502",
+   "name": "爻光",
+   "path": "Elation"
+  },
+  {
+   "id": "1503",
+   "name": "真珠",
+   "path": "Elation"
+  },
+  {
+   "id": "1504",
+   "name": "不死途",
+   "path": "Rogue"
+  },
+  {
+   "id": "1505",
+   "name": "绯英",
+   "path": "Elation"
+  },
+  {
+   "id": "1506",
+   "name": "银狼LV.999",
+   "path": "Elation"
+  },
+  {
+   "id": "1507",
+   "name": "千冶•刃",
+   "path": "Warlock"
+  },
+  {
+   "id": "1508",
+   "name": "远坂凛",
+   "path": "Mage"
+  },
+  {
+   "id": "1509",
+   "name": "吉尔伽美什",
+   "path": "Warrior"
+  },
+  {
+   "id": "1510",
+   "name": "姬子•启行",
+   "path": "Mage"
+  },
+  {
+   "id": "1512",
+   "name": "知更鸟•晴歌",
+   "path": "Memory"
+  },
+  {
+   "id": "1513",
+   "name": "砂金•戏浪",
+   "path": "Elation"
+  }
+ ],
+ "cones": [
+  {
+   "id": "23000",
+   "name": "银河铁道之夜",
+   "path": "Mage"
+  },
+  {
+   "id": "23001",
+   "name": "于夜色中",
+   "path": "Rogue"
+  },
+  {
+   "id": "23002",
+   "name": "无可取代的东西",
+   "path": "Warrior"
+  },
+  {
+   "id": "23003",
+   "name": "但战斗还未结束",
+   "path": "Shaman"
+  },
+  {
+   "id": "23004",
+   "name": "以世界之名",
+   "path": "Warlock"
+  },
+  {
+   "id": "23005",
+   "name": "制胜的瞬间",
+   "path": "Knight"
+  },
+  {
+   "id": "23006",
+   "name": "只需等待",
+   "path": "Warlock"
+  },
+  {
+   "id": "23007",
+   "name": "雨一直下",
+   "path": "Warlock"
+  },
+  {
+   "id": "23008",
+   "name": "棺的回响",
+   "path": "Priest"
+  },
+  {
+   "id": "23009",
+   "name": "到不了的彼岸",
+   "path": "Warrior"
+  },
+  {
+   "id": "23010",
+   "name": "拂晓之前",
+   "path": "Mage"
+  },
+  {
+   "id": "23011",
+   "name": "她已闭上双眼",
+   "path": "Knight"
+  },
+  {
+   "id": "23012",
+   "name": "如泥酣眠",
+   "path": "Rogue"
+  },
+  {
+   "id": "23013",
+   "name": "时节不居",
+   "path": "Priest"
+  },
+  {
+   "id": "23014",
+   "name": "此身为剑",
+   "path": "Warrior"
+  },
+  {
+   "id": "23015",
+   "name": "比阳光更明亮的",
+   "path": "Warrior"
+  },
+  {
+   "id": "23016",
+   "name": "烦恼着，幸福着",
+   "path": "Rogue"
+  },
+  {
+   "id": "23017",
+   "name": "惊魂夜",
+   "path": "Priest"
+  },
+  {
+   "id": "23018",
+   "name": "片刻，留在眼底",
+   "path": "Mage"
+  },
+  {
+   "id": "23019",
+   "name": "镜中故我",
+   "path": "Shaman"
+  },
+  {
+   "id": "23020",
+   "name": "纯粹思维的洗礼",
+   "path": "Rogue"
+  },
+  {
+   "id": "23021",
+   "name": "游戏尘寰",
+   "path": "Shaman"
+  },
+  {
+   "id": "23022",
+   "name": "重塑时光之忆",
+   "path": "Warlock"
+  },
+  {
+   "id": "23023",
+   "name": "命运从未公平",
+   "path": "Knight"
+  },
+  {
+   "id": "23024",
+   "name": "行于流逝的岸",
+   "path": "Warlock"
+  },
+  {
+   "id": "23025",
+   "name": "梦应归于何处",
+   "path": "Warrior"
+  },
+  {
+   "id": "23026",
+   "name": "夜色流光溢彩",
+   "path": "Shaman"
+  },
+  {
+   "id": "23027",
+   "name": "驶向第二次生命",
+   "path": "Rogue"
+  },
+  {
+   "id": "23028",
+   "name": "偏偏希望无价",
+   "path": "Mage"
+  },
+  {
+   "id": "23029",
+   "name": "那无数个春天",
+   "path": "Warlock"
+  },
+  {
+   "id": "23030",
+   "name": "落日时起舞",
+   "path": "Warrior"
+  },
+  {
+   "id": "23031",
+   "name": "我将，巡征追猎",
+   "path": "Rogue"
+  },
+  {
+   "id": "23032",
+   "name": "唯有香如故",
+   "path": "Priest"
+  },
+  {
+   "id": "23033",
+   "name": "忍法帖•缭乱破魔",
+   "path": "Mage"
+  },
+  {
+   "id": "23034",
+   "name": "回到大地的飞行",
+   "path": "Shaman"
+  },
+  {
+   "id": "23035",
+   "name": "长路终有归途",
+   "path": "Warlock"
+  },
+  {
+   "id": "23036",
+   "name": "将光阴织成黄金",
+   "path": "Memory"
+  },
+  {
+   "id": "23037",
+   "name": "向着不可追问处",
+   "path": "Mage"
+  },
+  {
+   "id": "23038",
+   "name": "如果时间是一朵花",
+   "path": "Shaman"
+  },
+  {
+   "id": "23039",
+   "name": "血火啊，燃烧前路",
+   "path": "Warrior"
+  },
+  {
+   "id": "23040",
+   "name": "让告别，更美一些",
+   "path": "Memory"
+  },
+  {
+   "id": "23041",
+   "name": "生命当付之一炬",
+   "path": "Mage"
+  },
+  {
+   "id": "23042",
+   "name": "愿虹光永驻天空",
+   "path": "Memory"
+  },
+  {
+   "id": "23043",
+   "name": "谎言在风中飘扬",
+   "path": "Warlock"
+  },
+  {
+   "id": "23044",
+   "name": "黎明恰如此燃烧",
+   "path": "Warrior"
+  },
+  {
+   "id": "23045",
+   "name": "没有回报的加冕",
+   "path": "Warrior"
+  },
+  {
+   "id": "23046",
+   "name": "理想燃烧的地狱",
+   "path": "Rogue"
+  },
+  {
+   "id": "23047",
+   "name": "海洋为何而歌",
+   "path": "Warlock"
+  },
+  {
+   "id": "23048",
+   "name": "金血铭刻的时代",
+   "path": "Shaman"
+  },
+  {
+   "id": "23049",
+   "name": "致长夜的星光",
+   "path": "Memory"
+  },
+  {
+   "id": "23050",
+   "name": "勿忘她的火焰",
+   "path": "Warlock"
+  },
+  {
+   "id": "23051",
+   "name": "纵然山河万程",
+   "path": "Knight"
+  },
+  {
+   "id": "23052",
+   "name": "爱如此刻永恒",
+   "path": "Memory"
+  },
+  {
+   "id": "23053",
+   "name": "花花世界迷人眼",
+   "path": "Elation"
+  },
+  {
+   "id": "23054",
+   "name": "当她决定看见",
+   "path": "Elation"
+  },
+  {
+   "id": "23055",
+   "name": "献给明日的色彩",
+   "path": "Elation"
+  },
+  {
+   "id": "23056",
+   "name": "一场谎言的终幕",
+   "path": "Rogue"
+  },
+  {
+   "id": "23057",
+   "name": "欢迎来到银河城",
+   "path": "Elation"
+  },
+  {
+   "id": "23058",
+   "name": "邂逅于下一个花季",
+   "path": "Elation"
+  },
+  {
+   "id": "23059",
+   "name": "灼尽炼狱的新骸",
+   "path": "Warlock"
+  },
+  {
+   "id": "23060",
+   "name": "当一颗星照亮夜空",
+   "path": "Mage"
+  },
+  {
+   "id": "23061",
+   "name": "星火悄然闪耀",
+   "path": "Mage"
+  },
+  {
+   "id": "23062",
+   "name": "所见即我",
+   "path": "Warrior"
+  },
+  {
+   "id": "23063",
+   "name": "你将起身歌唱",
+   "path": "Memory"
+  },
+  {
+   "id": "23064",
+   "name": "向浪花掷下盛夏",
+   "path": "Elation"
+  },
+  {
+   "id": "24000",
+   "name": "记一位星神的陨落",
+   "path": "Warrior"
+  },
+  {
+   "id": "24001",
+   "name": "星海巡航",
+   "path": "Rogue"
+  },
+  {
+   "id": "24002",
+   "name": "记忆的质料",
+   "path": "Knight"
+  },
+  {
+   "id": "24003",
+   "name": "孤独的疗愈",
+   "path": "Warlock"
+  },
+  {
+   "id": "24004",
+   "name": "不息的演算",
+   "path": "Mage"
+  },
+  {
+   "id": "24005",
+   "name": "记忆永不落幕",
+   "path": "Memory"
+  },
+  {
+   "id": "24006",
+   "name": "欢愉满溢祝福",
+   "path": "Elation"
+  }
+ ]
+}

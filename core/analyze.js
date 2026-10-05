@@ -413,6 +413,9 @@ function analyze(opts) {
     return {
       id: c.id, name: c.name, path: c.path, pathCn: PATH_CN[c.path] || c.path,
       rank: c.rank, copies: c.copies, srcText: srcTextOf(c.srcKeys),
+      // ⚠️ srcKeys 必须带出去：模板里 .pm 那行走的是 srcTx(c.srcKeys)（按语言拼），
+      //    漏了它 → undefined → srcTx 兜底成「截图补录」，39 张角色卡的来源会被整体标错。
+      srcKeys: c.srcKeys,
       // ⚠️ poolMark / poolMarkEn 必须**成对**带出去：漏一个，英文态就会露出「· 联动池」
       poolMark: c.poolMark, poolMarkEn: c.poolMarkEn,
       tags: c.win.map(cWin).concat(c.hist.map(cHist)),
@@ -434,6 +437,7 @@ function analyze(opts) {
     return {
       id: x.id, name: x.name, path: x.path, pathCn: PATH_CN[x.path] || x.path,
       sup: x.sup, copies: x.copies, srcText: srcTextOf(x.srcKeys), isStd,
+      srcKeys: x.srcKeys, // 同上：光锥全览的「叠影 N」悬浮提示也要按来源拼
       hasExt: x.hasExt, extAt: x.extAt, calcSup: x.calcSup,
       extOnly: x.hasExt && !x.win.length && !x.hist.length,
       conflict: x.hasExt && x.sup !== x.calcSup,

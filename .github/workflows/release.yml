@@ -31,6 +31,13 @@ jobs:
       - name: Divination engine assertions (offline, data-independent)
         run: node tools/verify-divination.js
 
+      # 发布闸门不该比 CI 松：产物是要分发出去的，这里把两条静态防线也跑一遍
+      - name: Dashboard statistics & forecast assertions (offline, data-independent)
+        run: node tools/verify-dashboard.js
+
+      - name: View field contract (analyze.js exports ⊆ analysis.js templates)
+        run: node tools/verify-view-contract.js
+
       - name: Boot smoke test (empty data, 9 endpoints)
         run: node tools/ci-smoke.js
 

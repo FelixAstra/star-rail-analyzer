@@ -29,6 +29,11 @@ jobs:
       - name: Dashboard statistics & forecast assertions (offline, data-independent)
         run: node tools/verify-dashboard.js
 
+      # analyze.js 导出的字段必须覆盖组件模板读的字段（真珠那次是模板用了
+      # c.srcKeys、视图漏导出 → 39 张卡的「数据来源」被静默标错）
+      - name: View field contract (analyze.js exports ⊆ analysis.js templates)
+        run: node tools/verify-view-contract.js
+
       - name: i18n coverage (zh + en)
         run: node tools/check-i18n.js
 

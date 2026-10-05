@@ -12,6 +12,8 @@
 //      纵轴上限、中位数 / 角色池占比、cross 金排除、十二时辰的钟点范围
 //   ⑦ 真实数据完整链路（本机 data/ 非空时才跑）
 //   ⑧ 空输入 / 单条输入不崩
+//   ⑨ 专属光锥表 × 角色索引：新角色漏登记，页面会把它显示成「专属光锥未获得」
+//      基准取 assets/index（本机完整索引）或 core/roster.json（CI 兜底，见 tools/build-roster.js）
 //
 // ⚠️ 已撤掉的断言，别再按旧接口写回来：
 //    「各组均值 95% 置信区间两两重叠 → 差异不显著」。这个推断不成立（见 core/dashboard.js
@@ -423,6 +425,65 @@ section('⑧ 边界情况');
   const over = D.build([{ name: 'c', gt: '12', gid: '3', pity: 40, time: '2026-01-03 12:00:00', up: true, cross: false }], { padded: { '12': 999 } });
   const lc = over.predict.pools.find(p => p.gt === '12');
   ok(lc && lc.padded === 80, '已垫抽数被夹到硬保底', lc && lc.padded);
+}
+
+// ── ⑨ 专属光锥表 × 角色索引：5★ 角色是否都登记了专属光锥 ─────────────────────
+// 根因防护（2026-10-05 真珠）：新角色上线时忘了往 core/pools.js 的 SIG 补一行，
+// 角色管理页会把它显示成「专属光锥未获得」—— 看着像真数据，其实是配错表。
+section('⑨ 专属光锥表 × 角色索引');
+{
+  const SIG = require(path.join(ROOT, 'core/pools.js')).SIG;
+  const readIdx = f => { try { return require(path.join(ROOT, 'assets/index', f)); } catch (e) { return null; } };
+  const CH = readIdx('cn_characters.json'), LC = readIdx('cn_light_cones.json');
+  // 基准二选一：
+  //   · 本机有 assets/index（米哈游解包索引，最全）→ 用它
+  //   · CI 的干净 checkout 里没有（索引因版权不随仓库分发）→ 用 core/roster.json
+  //     （tools/build-roster.js 生成后入库的最小事实：5★ 角色/光锥的 id、名称、命途）
+  // 早先这里在缺索引时只打印一行「跳过」就通过 —— 等于没拦，真珠那个漏登记就是这么溜过去的。
+  const readRoster = () => { try { return JSON.parse(require('fs').readFileSync(path.join(ROOT, 'core/roster.json'), 'utf8')); } catch (e) { return null; } };
+  const useFull = !!(CH && LC);
+  const ROSTER = useFull ? null : readRoster();
+  const brief = v => Object.entries(v).map(([id, x]) => Object.assign({ id }, x));
+  const chars = useFull
+    ? brief(CH).filter(x => x.rarity === 5 && !/^80/.test(x.id))  // 开拓者（8001~8010）本来就没有专属光锥
+    : (ROSTER ? ROSTER.chars : null);
+  const cones = useFull ? brief(LC).filter(x => x.rarity === 5) : (ROSTER ? ROSTER.cones : null);
+
+  if (!chars || !cones) {
+    ok(false, '既无本地索引、也无 core/roster.json —— 本项无法校验（请先跑 tools/build-roster.js）');
+  } else {
+    const src = useFull ? '本地索引' : 'core/roster.json';
+    const cIds = new Set(chars.map(x => x.id));
+    const lById = new Map(cones.map(x => [x.id, x]));
+    const cById = new Map(chars.map(x => [x.id, x]));
+
+    const missing = chars.filter(x => !SIG[x.id]);
+    ok(missing.length === 0,
+      chars.length + ' 位 5★ 角色都登记了专属光锥（基准：' + src + '，SIG 共 ' + Object.keys(SIG).length + ' 条）',
+      missing.map(x => x.id + ' ' + x.name).join('、'));
+
+    const bad = Object.entries(SIG).filter(([c, l]) => !cIds.has(c) || !lById.has(l));
+    ok(bad.length === 0, 'SIG 每条都命中基准里的角色与光锥（' + src + '）', bad.map(x => x.join('→')).join('、'));
+
+    // 命途一致：SIG 指向的一对必须同命途，否则卡片会把专武给错人
+    const badPath = Object.entries(SIG).filter(([c, l]) => {
+      const cc = cById.get(c), ll = lById.get(l);
+      return cc && ll && cc.path !== ll.path;
+    });
+    ok(badPath.length === 0, 'SIG 每条的命途都两两一致',
+      badPath.map(([c, l]) => cById.get(c).name + '→' + lById.get(l).name).join('、'));
+
+    // 名册同步（仅本机）：索引比名册新时提示重跑，否则新角色会从 CI 那条校验里漏掉
+    if (useFull) {
+      const prev = readRoster();
+      if (prev && Array.isArray(prev.chars)) {
+        const rIds = new Set(prev.chars.map(x => x.id));
+        const drift = chars.filter(x => !rIds.has(x.id));
+        ok(drift.length === 0, 'core/roster.json 与本机索引同步（不一致请重跑 tools/build-roster.js）',
+          drift.map(x => x.id + ' ' + x.name).join('、'));
+      }
+    }
+  }
 }
 
 console.log('\n' + (fail ? '✗ ' : '✓ ') + pass + ' 项通过' + (fail ? '，' + fail + ' 项失败' : '，0 项失败'));

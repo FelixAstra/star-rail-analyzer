@@ -248,8 +248,8 @@
       '· <b>Icon validity</b>: every icon is checked for a <b>PNG magic number plus a minimum byte size</b> — a file merely being present does not count as valid.',
     '· <b>逐池合计恒等</b>：角色活动 ＋ 光锥活动 ＋ 常驻 ＋ 新手 ＋ 联动 必须等于总抽数；<br>':
       '· <b>Per-banner totals must add up</b>: Character Event + Light Cone Event + Standard + Beginner + Collab must equal the grand total;<br>',
-    '· <b>专属光锥命途一致性</b>：64 组「角色 ↔ 专属光锥」的命途必须两两相同；<br>':
-      '· <b>Signature light cone Path consistency</b>: in all 64 “character ↔ signature light cone” pairs the two Paths must match;<br>',
+    '· <b>专属光锥命途一致性</b>：65 组「角色 ↔ 专属光锥」的命途必须两两相同；<br>':
+      '· <b>Signature light cone Path consistency</b>: in all 65 “character ↔ signature light cone” pairs the two Paths must match;<br>',
     '· 当前用的是内置表（联网取不到）':
       '· Showing the built-in table (online source unreachable)',
     '· 缓存已过期，显示的是上次结果':
